@@ -1,8 +1,11 @@
-function TaskComponent(props) {
+import "./task.css"
+
+function TaskComponent({ description, status }) {
     return (
-      <label>
-        <input type="checkbox"/> {props.task}
-      </label>
+      <>
+        <input type="checkbox" /> {description}
+        <span>{status === "Pendiente" ? "Pendiente" : "Completado"}</span>
+      </>
     );
 }
 
