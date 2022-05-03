@@ -6,6 +6,7 @@ function TaskComponent({ description }) {
   const [status, setStatus] = useState("pending");
   return (
     <li>
+      ∎
       {status === "completed" ? (
         <span className="completed" onClick={() => setStatus("pending")}>
           Completado
@@ -16,7 +17,11 @@ function TaskComponent({ description }) {
         </span>
       )}
       {description}
-      {status === "completed" ? (<img src={check} className="check" alt="check icon"/>) : ""}
+      {status === "completed" ? (
+        <img src={check} className="check" alt="check icon" />
+      ) : (
+        ""
+      )}
     </li>
   );
 }

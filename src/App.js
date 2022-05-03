@@ -1,6 +1,6 @@
 import './App.css';
-import HeaderComponent from './components/HeaderComponent';
-import TaskListComponent from './components/TaskListComponent';
+import HeaderComponent from './components/HeaderComponent/HeaderComponent';
+import TaskListComponent from './components/TaskListComponent/TaskListComponent';
 
 function App() {
   return (

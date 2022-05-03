@@ -1,8 +1,9 @@
-import TaskComponent from "./TaskComponent";
+import TaskComponent from "../TaskComponent/TaskComponent";
+import './taskList.css';
 
 function TaskListComponent() {
   const tasks = [
-    { description: "Practicar React1 1 hora", },
+    { description: "Practicar React 1 hora", },
     { description: "Practicar inglés 1 hora", },
     { description: "Hacer ejercicio 1 hora", },
     { description: "Trabajar en el proyecto 1 hora", },

@@ -1,5 +1,5 @@
 .App {
-  background-color: #293428;
+  background-color: #060606;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 
 .App-header div {
   display: flex;
-  color: #61dafb;
+  color: darkgreen;
 }
 .App-logo {
   height: 15vmin;
