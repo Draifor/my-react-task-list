@@ -1,12 +1,12 @@
 import { useState } from "react";
-import check from './check.svg';
+import check from "./check.svg";
 import "./task.css";
 
 function TaskComponent({ description }) {
   const [status, setStatus] = useState("pending");
   return (
     <li>
-      ∎
+      ◆
       {status === "completed" ? (
         <span className="completed" onClick={() => setStatus("pending")}>
           Completado

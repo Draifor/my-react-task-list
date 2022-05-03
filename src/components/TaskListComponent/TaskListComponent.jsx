@@ -3,11 +3,11 @@ import './taskList.css';
 
 function TaskListComponent() {
   const tasks = [
-    { description: "Practicar React 1 hora", },
-    { description: "Practicar inglés 1 hora", },
-    { description: "Hacer ejercicio 1 hora", },
-    { description: "Trabajar en el proyecto 1 hora", },
-    { description: "Tocar guitarra 30 minutos", }
+    { description: "Practicar React - 1 hora", },
+    { description: "Practicar inglés - 1 hora", },
+    { description: "Hacer ejercicio - 1 hora", },
+    { description: "Trabajar en el proyecto - 1 hora", },
+    { description: "Tocar guitarra - 30 minutos", }
   ];
 
   return (
