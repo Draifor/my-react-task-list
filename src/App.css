@@ -12,6 +12,7 @@
 .App-header div {
   display: flex;
   color: darkgreen;
+  margin-right: 50px;
 }
 .App-logo {
   height: 15vmin;
