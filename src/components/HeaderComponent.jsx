@@ -1,7 +1,6 @@
 import logo from "../logo.svg";
 
-function HeaderComponent(props) {
-  const { name, lastName } = props;
+function HeaderComponent({ name, lastName }) {
   return (
     <>
       <div>

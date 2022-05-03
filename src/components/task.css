@@ -1,6 +1,23 @@
+li {
+    position: relative;
+}
 span {
-    margin: 2px 20px;
+    display: inline-block;
+    margin: 10px 20px;
     padding: 0px 10px;
-    background-color: blue;
     color: white;
+    user-select: none;
+    width: 189px;
+}
+span.pending {
+    background-color: darkred;
+}
+span.completed {
+    background-color: darkgreen;
+}
+img.check {
+    width: 50px;
+    position: absolute;
+    top: 10px;
+    right: -60px;
 }
