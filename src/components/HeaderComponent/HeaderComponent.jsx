@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
+import list from "./list.svg";
 
 function HeaderComponent({ name, lastName }) {
   return (
     <>
       <div>
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={list} className="App-logo" alt="logo" />
           <h2>
             {name} {lastName}
           </h2>
