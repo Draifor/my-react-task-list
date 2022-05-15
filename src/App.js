@@ -1,8 +1,8 @@
 import './App.css';
-import HeaderComponent from './components/HeaderComponent/HeaderComponent';
-import BodyComponent from './components/BodyComponent/BodyComponent';
-import TaskListComponent from './views/TaskListComponent/TaskListComponent';
-import FooterComponent from './components/FooterComponent/FooterComponent';
+import HeaderComponent from './components/HeaderComponent/HeaderComponent.jsx';
+import BodyComponent from './components/BodyComponent/BodyComponent.jsx';
+import TaskListComponent from './views/TaskListComponent/TaskListComponent.jsx';
+import FooterComponent from './components/FooterComponent/FooterComponent.jsx';
 
 function App() {
   const name = "Draifor's App";
