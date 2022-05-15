@@ -1,16 +1,18 @@
 import './App.css';
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
-import TaskListComponent from './components/TaskListComponent/TaskListComponent';
+import BodyComponent from './components/BodyComponent/BodyComponent';
+import TaskListComponent from './views/TaskListComponent/TaskListComponent';
+import FooterComponent from './components/FooterComponent/FooterComponent';
 
 function App() {
+  const name = "Draifor's App";
   return (
-    <div className="App">
-      <header className="App-header">
-        <HeaderComponent name="Alfredo" lastName="Parra" />
-      </header>
-      <main>
+    <div className='App-container'>
+      <HeaderComponent name={name} />
+      <BodyComponent title='Lista de Tareas'>
         <TaskListComponent/>
-      </main>
+      </BodyComponent>
+      <FooterComponent name="Luis Alfredo Parra - Draifor"/>
     </div>
   );
 }

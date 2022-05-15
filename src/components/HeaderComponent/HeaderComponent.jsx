@@ -1,16 +1,14 @@
-import list from "./list.svg";
+import list from "./checklist.svg";
+import './header.css';
 
-function HeaderComponent({ name, lastName }) {
+function HeaderComponent({ name }) {
   return (
-    <>
-      <div>
-          <img src={list} className="App-logo" alt="logo" />
+      <header className="App-header">
+          <img src={list} className="App-logo" alt="check-list icon" />
           <h2>
-            {name} {lastName}
+            {name}
           </h2>
-      </div>
-      <h1>Lista de tareas</h1>
-    </>
+      </header>
   );
 }
 

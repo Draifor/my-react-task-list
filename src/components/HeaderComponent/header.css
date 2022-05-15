@@ -1,0 +1,14 @@
+.App-header {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #006400;
+}
+.App-logo {
+  height: 5em;
+  pointer-events: none;
+}
+h2 {
+    font-size: 2em;
+}
