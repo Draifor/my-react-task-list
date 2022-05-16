@@ -1,35 +1,12 @@
-import { useState } from "react";
-import check from "./check.svg";
-import uncheck from "./uncheck.svg";
+import TogglerStatusComponent from "../TogglerStatusComponent/TogglerStatusComponent";
+import  edit from './edit.svg'
 import "./task.css";
 
-function TaskComponent({ description }) {
-  const [status, setStatus] = useState("pending");
+function TaskComponent({ position }) {
   return (
-    <li className={status}>
-      {status === "completed" ? (
-        <>
-          <img
-            src={check}
-            className="check"
-            alt="check icon"
-            onClick={() => setStatus("pending")}
-          />
-          {description}
-          <span className="completed">Completado</span>
-        </>
-      ) : (
-        <>
-          <img
-            src={uncheck}
-            className="uncheck"
-            alt="uncheck icon"
-            onClick={() => setStatus("completed")}
-          />
-          {description}
-          <span className="pending">Pendiente</span>
-        </>
-      )}
+    <li>
+      <img src={edit} alt="Edit" />
+      <TogglerStatusComponent position={position}/>
     </li>
   );
 }

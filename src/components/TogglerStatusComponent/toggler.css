@@ -1,0 +1,25 @@
+img:active {
+    transform: scale(.9);
+}
+img.check {
+    width: 49px;
+}
+img.uncheck {
+    width: 40px;
+}
+span.status {
+    display: inline-block;
+    padding: 0px 10px 3px;
+    color: white;
+    user-select: none;
+    width: 189px;
+}
+span.text-completed {
+    color: #666666;
+}
+span.pending {
+    border: 2px solid #006400;
+}
+span.completed {
+    background-color: #006400;
+}
