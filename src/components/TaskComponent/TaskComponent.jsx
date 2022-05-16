@@ -1,15 +1,13 @@
 import "./task.css";
 import  edit from './edit.svg'
 
-import { useContext, useState } from "react";
-import { TasksContext } from "../../views/TaskListComponent/TaskListComponent";
+import { useState } from "react";
 
 import ImageStatusComponent from "../ImageStatusComponent/ImageStatusComponent";
 import SpanStatusComponent from "../SpanStatusComponent/SpanStatusComponent";
 
-function TaskComponent({ position }) {
-  const [ tasks ] = useContext(TasksContext);
-  const { description } = tasks[ position ];
+function TaskComponent({ task }) {
+  const { description } = task;
   const [ status, setStatus ] = useState("pending");
 
   const togglerStatus = () => {

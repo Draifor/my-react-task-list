@@ -5,7 +5,7 @@ import "./taskList.css";
 
 export const TasksContext = createContext([
   [{ id: 0, description: "" }],
-  (task) => task,
+  (tasks) => tasks,
 ]);
 
 function TaskListComponent() {
@@ -34,11 +34,11 @@ function TaskListComponent() {
   ]);
 
   return (
-    <TasksContext.Provider value={[tasks, setTasks]}>
+    <TasksContext.Provider value={[ tasks, setTasks ]}>
       <ul className="task-list">
-        {tasks.map((task) => {
-          return <TaskComponent key={task.id} position={task.id} />;
-        })}
+        { tasks.map((task) => {
+          return <TaskComponent key={ task.id } task={ task } />;
+        }) }
         <AddTaskComponent />
       </ul>
     </TasksContext.Provider>
