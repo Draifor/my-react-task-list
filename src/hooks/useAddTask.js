@@ -12,7 +12,7 @@ function useAddTask() {
         if (!description) return tasks;
 
         newTask.value = "";
-        setTasks([ ...tasks, { id: tasks.length, description: description } ]);
+        setTasks([ ...tasks, { id: tasks.length, description: description, status: 'pending' } ]);
     };
 }
 
