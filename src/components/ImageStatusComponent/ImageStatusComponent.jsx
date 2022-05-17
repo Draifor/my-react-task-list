@@ -1,6 +1,6 @@
+import "./imageStatus.css";
 import check from "./check.svg";
 import uncheck from "./uncheck.svg";
-import "./imageStatus.css";
 
 function ImageStatusComponent({ status, onClick }) {
   return (

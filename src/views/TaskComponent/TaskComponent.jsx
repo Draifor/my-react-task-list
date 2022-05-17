@@ -5,7 +5,7 @@ import useTogglerStatus from "../../hooks/useTogglerStatus";
 import useHandleEdit from "../../hooks/useHandleEdit";
 
 import ImageStatusComponent from "../../components/ImageStatusComponent/ImageStatusComponent";
-import SpanStatusComponent from "../../components/SpanStatusComponent/SpanStatusComponent";
+import StatusComponent from "../../components/StatusComponent/StatusComponent";
 import EditTaskComponent from "../../components/EditTaskComponent/EditTaskComponent";
 
 function TaskComponent({ position }) {
@@ -19,7 +19,7 @@ function TaskComponent({ position }) {
       return (
         <>
           <span contentEditable={isEditable}>{description}</span>
-          <SpanStatusComponent
+          <StatusComponent
             isCompleted={status === "pending" ? false : true}
           />
         </>

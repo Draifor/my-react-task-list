@@ -1,7 +1,9 @@
+import "./addTask.css";
+
+import useAddTask from "../../hooks/useAddTask";
+
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 import InputComponent from "../../components/InputComponent/InputComponent";
-import useAddTask from "../../hooks/useAddTask";
-import "./addTask.css";
 
 function AddTaskComponent() {
   const addTask = useAddTask();

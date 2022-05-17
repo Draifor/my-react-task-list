@@ -1,7 +1,9 @@
 import './editTask.css';
+
+import useEditTask from "../../hooks/useEditTask";
+
 import InputComponent from "../InputComponent/InputComponent";
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
-import useEditTask from "../../hooks/useEditTask";
 
 function EditTaskComponent({ position }) {
     const [ task ,editTask ] = useEditTask( position );

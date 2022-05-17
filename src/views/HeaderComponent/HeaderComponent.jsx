@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
 import './header.css';
+import logo from "./logo.svg";
 
 function HeaderComponent({ name }) {
   return (

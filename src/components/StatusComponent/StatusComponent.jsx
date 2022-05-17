@@ -1,6 +1,6 @@
 import './span.css';
 
-function SpanStatusComponent({ isCompleted }) {
+function StatusComponent({ isCompleted }) {
   return (
     <>
       {isCompleted === true ? (
@@ -12,4 +12,4 @@ function SpanStatusComponent({ isCompleted }) {
   );
 }
 
-export default SpanStatusComponent;
+export default StatusComponent;

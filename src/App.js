@@ -1,5 +1,6 @@
 import './App.css';
-import HeaderComponent from './components/HeaderComponent/HeaderComponent.jsx';
+
+import HeaderComponent from './views/HeaderComponent/HeaderComponent.jsx';
 import BodyComponent from './components/BodyComponent/BodyComponent.jsx';
 import TaskListComponent from './views/TaskListComponent/TaskListComponent.jsx';
 import FooterComponent from './components/FooterComponent/FooterComponent.jsx';

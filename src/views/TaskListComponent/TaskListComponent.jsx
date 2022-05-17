@@ -1,7 +1,9 @@
+import "./taskList.css";
+
 import { useState, createContext } from "react";
+
 import TaskComponent from "../TaskComponent/TaskComponent";
 import AddTaskComponent from "../AddTaskComponent/AddTaskComponent";
-import "./taskList.css";
 
 export const TasksContext = createContext([
   [{ id: 0, description: "", status: "" }],
