@@ -9,10 +9,5 @@ form {
     /* border-radius: 15px; */
     padding: 5px;
     margin-top: 20px;
-}
-input {
-    padding: 5px;
-    background-color: #00640055;
-    border: none;
-    color: #fff;
+    /* color: #006400; */
 }

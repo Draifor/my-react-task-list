@@ -1,4 +1,5 @@
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
+import InputComponent from "../../components/InputComponent/InputComponent";
 import useAddTask from "../../hooks/useAddTask";
 import "./addTask.css";
 
@@ -8,7 +9,7 @@ function AddTaskComponent() {
   return (
     <form>
       <label htmlFor="add-task">Nueva Tarea:</label>
-      <input type="text" id="new-task" name="add-task" />
+      <InputComponent id="new-task" name="add-task" />
       <ButtonComponent onClick={addTask}>Agregar</ButtonComponent>
     </form>
   );
