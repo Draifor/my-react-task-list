@@ -3,12 +3,10 @@ import logo from "./logo.svg";
 
 function HeaderComponent({ name }) {
   return (
-      <header className="App-header">
-          <img src={logo} className="App-logo" alt="check-list icon" />
-          <h2>
-            {name}
-          </h2>
-      </header>
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="check-list icon" />
+      <h2>Draifor's App</h2>
+    </header>
   );
 }
 

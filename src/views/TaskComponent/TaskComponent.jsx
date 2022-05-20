@@ -18,7 +18,7 @@ function TaskComponent({ position }) {
     if (!isEditable)
       return (
         <>
-          <span contentEditable={isEditable}>{description}</span>
+          {description}
           <StatusComponent
             isCompleted={status === "pending" ? false : true}
           />

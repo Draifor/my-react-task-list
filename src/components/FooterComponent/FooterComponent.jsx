@@ -1,8 +1,8 @@
 import './footer.css'
 
-function FooterComponent({ name }) {
+function FooterComponent() {
   return (
-    <p>Todos los derechos reservados {name}&copy; 2022</p>
+    <p>Todos los derechos reservados Luis Alfredo Parra - Draifor&copy; 2022</p>
   );
 }
 
