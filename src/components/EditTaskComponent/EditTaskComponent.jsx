@@ -1,14 +1,16 @@
 import './editTask.css';
 
 import { useContext, useState } from "react";
-import { TasksContext } from "../../views/TaskListComponent/TaskListComponent";
+import {TasksContext} from "../BodyComponent/BodyComponent";
 // import useEditTask from "../../hooks/useEditTask";
 
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
+import InputComponent from '../InputComponent/InputComponent';
+import TextAreaComponent from '../TextAreaComponent/TextAreaComponent';
 
 function EditTaskComponent({ position }) {
     // const [ task, editTask ] = useEditTask( position );
-  const [tasks, setTasks] = useContext(TasksContext);
+  const {tasks, setTasks} = useContext(TasksContext);
   const { title, description } = tasks[position];
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
@@ -27,9 +29,11 @@ function EditTaskComponent({ position }) {
   };
 
   return (
-    <form className='edit-task'>
-       <input type="text" name='edit-task' className="edit-title" value={newTitle} onChange={handleInput} />
-       <textarea name="edit-task" className="edit-description" cols="30" rows="10" value={newDescription} onChange={handleDescription}></textarea>
+    <form className='form-edit-task'>
+       <fieldset className='form-fieldset-edit'>
+         <InputComponent type="text" name='edit-task' className="edit-title" value={newTitle} onChange={handleInput} autoFocus />
+         <TextAreaComponent name="edit-task" className="edit-description" cols="30" rows="5" value={newDescription} onChange={handleDescription}/>
+       </fieldset>
        <ButtonComponent onClick={ handleEdit }>Guardar</ButtonComponent>
     </form>
   )

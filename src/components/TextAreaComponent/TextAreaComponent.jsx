@@ -1,27 +1,25 @@
-import "./input.css";
+import "./textArea.css";
 
-function InputComponent({
-  type,
-  id,
+export default function TextAreaComponent({
   name,
+  id,
   className,
+  cols,
+  rows,
   placeholder,
   value,
   onChange,
-  autoFocus,
 }) {
   return (
-    <input
-      type={type}
-      id={id}
+    <textarea
       name={name}
+      id={id}
       className={className}
+      cols={cols}
+      rows={rows}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
-      autoFocus={autoFocus}
     />
   );
 }
-
-export default InputComponent;

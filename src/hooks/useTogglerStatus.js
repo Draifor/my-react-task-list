@@ -1,21 +1,28 @@
 import { useContext } from "react";
-import { TasksContext } from "../views/TaskListComponent/TaskListComponent";
+import { TasksContext } from "../components/BodyComponent/BodyComponent";
 
-function useTogglerStatus( position ) {
-  const [tasks, setTasks] = useContext(TasksContext);
+function useTogglerStatus(position) {
+  const {tasks, setTasks, completedCounter, setCompletedCounter} = useContext(TasksContext);
   const currentTask = tasks[position];
 
   const togglerStatus = () => {
     setTasks(
       tasks.map((task) => {
-        if (task.id === position) task.status === "pending" ? task.status = "completed" : task.status = "pending";
+        if (task.id === position)
+          if (task.status === "pending") {
+            task.status = "completed";
+            setCompletedCounter(completedCounter + 1);
+          } else {
+            task.status = "pending";
+            setCompletedCounter(completedCounter - 1);
+          }
 
         return { ...task };
       })
     );
   };
 
-  return [ currentTask, togglerStatus ];
+  return [currentTask, togglerStatus];
 }
 
 export default useTogglerStatus;

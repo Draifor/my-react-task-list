@@ -15,7 +15,7 @@ function AddTaskComponent() {
   return (
     <>
       {isAddTask ? (
-        <FormAddComponent isAddTask={isAddTask} setAddTask={setIsAddTask} />
+        <FormAddComponent setAddTask={setIsAddTask} />
       ) : (
         <ButtonComponent onClick={handleAdd}>Agregar Tarea</ButtonComponent>
       )}

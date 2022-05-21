@@ -15,14 +15,23 @@ function TaskComponent({ position }) {
 
   const { title, description, status, isEditable } = task;
   const [showDescription, setShowDescription] = useState(false);
-  const handleDescription = () => showDescription === true ? setShowDescription(false) : setShowDescription(true);
+  const handleDescription = () =>
+    showDescription === true
+      ? setShowDescription(false)
+      : setShowDescription(true);
 
   function renderContent() {
     if (!isEditable)
       return (
         <>
-          <span className='task-title' onClick={handleDescription}>{title}</span>
-          {showDescription === true && <span className="task-description">{description !== '' ? description : 'No hay descripción'}</span>}
+          <span className='task' onClick={handleDescription}>
+            <span className="task-title">{title}</span>
+            {showDescription === true && (
+              <span className="task-description">
+                {description !== "" ? description : "No hay descripción"}
+              </span>
+            )}
+          </span>
           <StatusComponent isCompleted={status === "pending" ? false : true} />
         </>
       );
@@ -30,7 +39,7 @@ function TaskComponent({ position }) {
   }
 
   return (
-    <li className={`${status} ${showDescription === true && 'description'}`}>
+    <li className={`${status} ${showDescription === true && "description"}`}>
       <img src={edit} onClick={handleEdit} alt="Edit" />
       <ImageStatusComponent status={status} onClick={togglerStatus} />
       {renderContent()}

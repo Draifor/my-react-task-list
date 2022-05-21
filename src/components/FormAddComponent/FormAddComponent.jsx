@@ -1,10 +1,13 @@
+import './formAdd.css';
 import { useContext, useState } from "react";
-import { TasksContext } from "../../views/TaskListComponent/TaskListComponent.jsx";
+import { TasksContext } from "../BodyComponent/BodyComponent";
 
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
+import TextAreaComponent from '../TextAreaComponent/TextAreaComponent';
+import InputComponent from '../InputComponent/InputComponent';
 
-export default function FormAddComponent({ isAddTask, setAddTask }) {
-  const [tasks, setTasks] = useContext(TasksContext);
+export default function FormAddComponent({ setAddTask }) {
+  const {tasks, setTasks} = useContext(TasksContext);
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const [newTaskDescription, setNewTaskDescription] = useState("");
   const [errorValidation, setErrorValidation] = useState('');
@@ -13,7 +16,7 @@ export default function FormAddComponent({ isAddTask, setAddTask }) {
 const handleDescription = (event) => setNewTaskDescription(event.target.value);
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (newTaskTitle.length <= 3) return setErrorValidation('El nombre de tarea es demasiado corto')
+    if (newTaskTitle.length <= 3) return setErrorValidation('El nombre de la tarea es demasiado corto')
     else setErrorValidation('');
     setAddTask(false);
     setTasks([
@@ -23,24 +26,26 @@ const handleDescription = (event) => setNewTaskDescription(event.target.value);
   };
 
   return (
-    <form>
+    <form className='form-add-task'>
       <label htmlFor="add-task">Nueva Tarea:</label>
-      <input
+      <InputComponent
         type="text"
         id="new-task-input"
         name="add-task"
+        placeholder='Nombre de la tarea'
         value={newTaskTitle}
         onChange={handleInput}
         autoFocus
       />
-      <textarea
+      <TextAreaComponent
         name="add-task"
         id="new-task-textarea "
         cols="30"
-        rows="10"
+        rows="3"
+        placeholder='Descripción'
         value={newTaskDescription}
         onChange={handleDescription}
-      ></textarea>
+      />
       <ButtonComponent onClick={handleSubmit}>Agregar</ButtonComponent>
       <ButtonComponent onClick={() => setAddTask(false)}>Cancelar</ButtonComponent>
       {errorValidation !== '' && <p>{errorValidation}</p>}

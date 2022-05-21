@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { TasksContext } from "../views/TaskListComponent/TaskListComponent";
+import { TasksContext } from "../components/BodyComponent/BodyComponent";
 
 function useHandleEdit(position) {
-  const [tasks, setTasks] = useContext(TasksContext);
+  const {tasks, setTasks} = useContext(TasksContext);
 
   const handleEdit = () => {
     setTasks(
