@@ -1,13 +1,25 @@
 import "./addTask.css";
 
+import { useState } from "react";
+// import useAddTask from "../../hooks/useAddTask";
 
 import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 import FormAddComponent from "../../components/FormAddComponent/FormAddComponent";
 
 function AddTaskComponent() {
+  // const addTask = useAddTask();
+  const [isAddTask, setIsAddTask] = useState(false);
+
+  const handleAdd = () => setIsAddTask(true);
 
   return (
-    <FormAddComponent />
+    <>
+      {isAddTask ? (
+        <FormAddComponent isAddTask={isAddTask} setAddTask={setIsAddTask} />
+      ) : (
+        <ButtonComponent onClick={handleAdd}>Agregar Tarea</ButtonComponent>
+      )}
+    </>
   );
 }
 
