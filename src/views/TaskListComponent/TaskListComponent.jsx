@@ -7,6 +7,7 @@ import AddTaskComponent from "../../components/AddTaskComponent/AddTaskComponent
 
 function TaskListComponent() {
   const { tasks } = useContext(TasksContext);
+
   return (
     <>
       <ul className="task-list">
@@ -14,7 +15,7 @@ function TaskListComponent() {
           return <TaskComponent key={task.id} position={task.id} />;
         })}
       </ul>
-        <AddTaskComponent />
+      <AddTaskComponent />
     </>
   );
 }
