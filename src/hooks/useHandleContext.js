@@ -45,8 +45,13 @@ const initialTasks = storedTasks
 
 export default function useHandleContext() {
   const [tasks, setTasks] = useState(initialTasks);
+  const initialCompletedCounter = tasks.filter(
+    (task) => task.status === "completed"
+  ).length;
   const [taskCounter, setTaskCounter] = useState(tasks.length);
-  const [completedCounter, setCompletedCounter] = useState(0);
+  const [completedCounter, setCompletedCounter] = useState(
+    initialCompletedCounter
+  );
 
   useEffect(() => {
     setTaskCounter(tasks.length);
