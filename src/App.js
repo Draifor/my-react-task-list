@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App-container">
       <HeaderComponent />
-      <BodyComponent title="Lista de Tareas">
+      <BodyComponent>
         <TaskListComponent />
       </BodyComponent>
       <FooterComponent />

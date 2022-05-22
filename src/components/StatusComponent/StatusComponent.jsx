@@ -1,4 +1,4 @@
-import './span.css';
+import "./span.css";
 
 function StatusComponent({ isCompleted }) {
   return (

@@ -3,18 +3,18 @@ import edit from "./edit.svg";
 
 import { useState } from "react";
 import useTogglerStatus from "../../hooks/useTogglerStatus";
-import useHandleEdit from "../../hooks/useHandleEdit";
+import useTogglerEdit from "../../hooks/useTogglerEdit";
 
 import ImageStatusComponent from "../../components/ImageStatusComponent/ImageStatusComponent";
 import StatusComponent from "../../components/StatusComponent/StatusComponent";
-import EditTaskComponent from "../../components/EditTaskComponent/EditTaskComponent";
+import EditTaskComponent from "../EditTaskComponent/EditTaskComponent";
 
 function TaskComponent({ position }) {
   const [task, togglerStatus] = useTogglerStatus(position);
-  const handleEdit = useHandleEdit(position);
+  const togglerEdit = useTogglerEdit(position);
+  const [showDescription, setShowDescription] = useState(false);
 
   const { title, description, status, isEditable } = task;
-  const [showDescription, setShowDescription] = useState(false);
   const handleDescription = () =>
     showDescription === true
       ? setShowDescription(false)
@@ -24,7 +24,7 @@ function TaskComponent({ position }) {
     if (!isEditable)
       return (
         <>
-          <span className='task' onClick={handleDescription}>
+          <span className="task" onClick={handleDescription}>
             <span className="task-title">{title}</span>
             {showDescription === true && (
               <span className="task-description">
@@ -40,7 +40,7 @@ function TaskComponent({ position }) {
 
   return (
     <li className={`${status} ${showDescription === true && "description"}`}>
-      <img src={edit} onClick={handleEdit} alt="Edit" />
+      <img src={edit} onClick={togglerEdit} alt="Edit" />
       <ImageStatusComponent status={status} onClick={togglerStatus} />
       {renderContent()}
     </li>

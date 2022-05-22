@@ -1,7 +1,7 @@
-import './header.css';
+import "./header.css";
 import logo from "./logo.svg";
 
-function HeaderComponent({ name }) {
+function HeaderComponent() {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="check-list icon" />

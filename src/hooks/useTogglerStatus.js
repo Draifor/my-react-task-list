@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { TasksContext } from "../components/BodyComponent/BodyComponent";
+import { TasksContext } from "./useHandleContext";
 
 function useTogglerStatus(position) {
-  const {tasks, setTasks, completedCounter, setCompletedCounter} = useContext(TasksContext);
+  const { tasks, setTasks, completedCounter, setCompletedCounter } =
+    useContext(TasksContext);
   const currentTask = tasks[position];
 
   const togglerStatus = () => {

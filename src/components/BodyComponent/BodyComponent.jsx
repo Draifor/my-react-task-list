@@ -1,58 +1,21 @@
 import "./main.css";
+import useHandleContext from "../../hooks/useHandleContext";
 
-import { useState, createContext, useEffect } from "react";
-
-export const TasksContext = createContext({
-  tasks: [{ id: 0, description: "", status: "" }],
-  setTaks: (tasks) => tasks,
-  completedCounter: 0,
-  setCompletedCounter: (counter) => counter
-});
-
-function BodyComponent({ title, children }) {
-  const [tasks, setTasks] = useState([
-    {
-      id: 0,
-      title: "Practicar React - 1 hora",
-      description: "Desarrollar el laboratorio de formularios",
-      status: "pending",
-    },
-    {
-      id: 1,
-      title: "Practicar inglés - 1 hora",
-      description: "Usar Duolingo y Elsa Speak",
-      status: "pending",
-    },
-    {
-      id: 2,
-      title: "Hacer ejercicio - 1 hora",
-      description: "",
-      status: "pending",
-    },
-    {
-      id: 3,
-      title: "Trabajar en el proyecto - 1 hora",
-      description: "Implementar los formularios",
-      status: "pending",
-    },
-    {
-      id: 4,
-      title: "Tocar guitarra - 30 minutos",
-      description: "Hacer ejercicos de fingerpicking",
-      status: "pending",
-    },
-  ]);
-  const [taskCounter, setTaskCounter] = useState(tasks.length);
-  const [ completedCounter, setCompletedCounter ] = useState(0);
-
-  useEffect(() => {
-    setTaskCounter(tasks.length);
-  }, [tasks]);
-
+function BodyComponent({ children }) {
+  const {
+    TasksContext,
+    tasks,
+    setTasks,
+    completedCounter,
+    setCompletedCounter,
+    taskCounter,
+  } = useHandleContext();
   return (
-    <TasksContext.Provider value={{ tasks, setTasks, completedCounter, setCompletedCounter }}>
+    <TasksContext.Provider
+      value={{ tasks, setTasks, completedCounter, setCompletedCounter }}
+    >
       <main>
-        <h1>{title}</h1>
+        <h1>Lista de Tareas</h1>
         <p>
           {completedCounter} de {taskCounter} tareas completadas
         </p>

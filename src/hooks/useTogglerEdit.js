@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { TasksContext } from "../components/BodyComponent/BodyComponent";
+import { TasksContext } from "./useHandleContext";
 
-function useHandleEdit(position) {
-  const {tasks, setTasks} = useContext(TasksContext);
+function useTogglerEdit(position) {
+  const { tasks, setTasks } = useContext(TasksContext);
 
   const handleEdit = () => {
     setTasks(
@@ -21,4 +21,4 @@ function useHandleEdit(position) {
   return handleEdit;
 }
 
-export default useHandleEdit;
+export default useTogglerEdit;

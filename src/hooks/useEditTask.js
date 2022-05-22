@@ -1,25 +1,35 @@
-import { useContext } from "react";
-import { TasksContext } from "../views/TaskListComponent/TaskListComponent";
+import { useContext, useState } from "react";
+import { TasksContext } from "./useHandleContext";
 
-function useEditTask(position) {
-  const [tasks, setTasks] = useContext(TasksContext);
-  const currentTask = tasks[position];
+export function useEditTask(position) {
+  const { tasks, setTasks } = useContext(TasksContext);
+  const { title, description } = tasks[position];
+  const [newTitle, setNewTitle] = useState(title);
+  const [newDescription, setNewDescription] = useState(description);
 
-  const editTask = (event) => {
+  const handleInput = (event) => setNewTitle(event.target.value);
+  const handleDescription = (event) => setNewDescription(event.target.value);
+  const handleEdit = (event) => {
     event.preventDefault();
-    const newDescription = document.getElementById(
-      `edit-task-${position}`
-    ).value;
-
     setTasks(
       tasks.map((task) => {
         if (task.id === position)
-          return { ...task, description: newDescription, isEditable: false };
+          return {
+            ...task,
+            title: newTitle,
+            description: newDescription,
+            isEditable: false,
+          };
         return { ...task };
       })
     );
   };
-  return [currentTask, editTask];
-}
 
-export default useEditTask;
+  return {
+    newTitle,
+    newDescription,
+    handleInput,
+    handleDescription,
+    handleEdit,
+  };
+}
