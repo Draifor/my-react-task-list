@@ -1,7 +1,9 @@
 import "./main.css";
 import useHandleContext from "../../hooks/useHandleContext";
 
-function BodyComponent({ children }) {
+import TaskListComponent from "../TaskListComponent/TaskListComponent.jsx";
+
+function Tasks() {
   const {
     TasksContext,
     tasks,
@@ -19,10 +21,12 @@ function BodyComponent({ children }) {
         <p>
           {completedCounter} de {taskCounter} tareas completadas
         </p>
-        <section className="main-container">{children}</section>
+        <section className="main-container">
+          <TaskListComponent />
+        </section>
       </main>
     </TasksContext.Provider>
   );
 }
 
-export default BodyComponent;
+export default Tasks;

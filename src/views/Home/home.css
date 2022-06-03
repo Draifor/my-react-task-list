@@ -1,0 +1,11 @@
+.App-home {
+  flex-grow: 1;
+  margin-top: 50px;
+  width: 75ch;
+}
+.App-home h1 {
+  font-size: 2.2em;
+}
+.App-home h2 {
+  font-size: 1.8em;
+}
