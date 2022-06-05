@@ -13,7 +13,7 @@
     letter-spacing: 0.02857em;
     color: rgba(255, 255, 255);
     background-color: #006400;
-    box-shadow: 0 0 3px 1px #006400;
+    box-shadow: 0 0 3px 1px #0b940b;
     transition: all .25s ease-out;
 }
 .app-button:hover {
