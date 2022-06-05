@@ -11,13 +11,13 @@ export default function NavComponent() {
     <Breadcrumb separator="" >
       <BreadcrumbItem>
         <BreadcrumbLink as={Link} to="/home">
-          <Button variant="my-style">HOME</Button>
+          <Button variant="my-style" w='173px' >HOME</Button>
         </BreadcrumbLink>
       </BreadcrumbItem>
 
       <BreadcrumbItem>
         <BreadcrumbLink as={Link} to="/tasks">
-          <Button variant="my-style">TAREAS</Button>
+          <Button variant="my-style" w='173px' >TAREAS</Button>
         </BreadcrumbLink>
       </BreadcrumbItem>
 

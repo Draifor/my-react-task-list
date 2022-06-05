@@ -8,7 +8,7 @@ import NavComponent from "./components/NavComponent";
 import FooterComponent from "./components/FooterComponent/FooterComponent.jsx";
 
 const Home = lazy(() => import("./views/Home.jsx"));
-const Tasks = lazy(() => import("./views/Tasks/Tasks.jsx"));
+const Tasks = lazy(() => import("./views/Tasks.jsx"));
 const AboutUs = lazy(() => import("./views/AboutUs/AboutUs.jsx"));
 
 function App() {

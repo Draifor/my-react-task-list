@@ -1,7 +1,7 @@
-import "./main.css";
-import useHandleContext from "../../hooks/useHandleContext";
+import useHandleContext from "../hooks/useHandleContext";
 
-import TaskListComponent from "../TaskListComponent/TaskListComponent.jsx";
+import { Box, Heading, Text } from "@chakra-ui/react";
+import TaskListComponent from "./TaskListComponent/TaskListComponent.jsx";
 
 function Tasks() {
   const {
@@ -16,15 +16,15 @@ function Tasks() {
     <TasksContext.Provider
       value={{ tasks, setTasks, completedCounter, setCompletedCounter }}
     >
-      <main>
-        <h1>Lista de Tareas</h1>
-        <p>
+      <Box as="main" flexGrow="1">
+        <Heading as="h1" size="2xl">
+          Lista de Tareas
+        </Heading>
+        <Text>
           {completedCounter} de {taskCounter} tareas completadas
-        </p>
-        <section className="main-container">
-          <TaskListComponent />
-        </section>
-      </main>
+        </Text>
+        <TaskListComponent />
+      </Box>
     </TasksContext.Provider>
   );
 }
