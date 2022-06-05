@@ -8,7 +8,7 @@ import {
 
 export default function NavComponent() {
   return (
-    <Breadcrumb separator="">
+    <Breadcrumb separator="" >
       <BreadcrumbItem>
         <BreadcrumbLink as={Link} to="/home">
           <Button variant="my-style">HOME</Button>
