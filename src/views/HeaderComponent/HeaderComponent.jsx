@@ -1,12 +1,13 @@
-import "./header.css";
 import logo from "./logo.svg";
+
+import { Center, Heading, Image } from '@chakra-ui/react';
 
 function HeaderComponent() {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="check-list icon" />
-      <h2>Draifor's App</h2>
-    </header>
+    <Center as="header" mt={5} color="#006400" pointerEvents='none'>
+      <Image src={logo} h='4em' alt="check-list icon" />
+      <Heading>Draifor's App</Heading>
+    </Center>
   );
 }
 
