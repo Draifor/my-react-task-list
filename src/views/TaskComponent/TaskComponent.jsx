@@ -39,11 +39,11 @@ function TaskComponent({ position }) {
   }
 
   return (
-    <li className={`${status} ${showDescription === true && "description"}`}>
+    <div className={`${status} ${showDescription === true && "description"}`}>
       <img src={edit} onClick={togglerEdit} alt="Edit" />
       <ImageStatusComponent status={status} onClick={togglerStatus} />
       {renderContent()}
-    </li>
+    </div>
   );
 }
 
