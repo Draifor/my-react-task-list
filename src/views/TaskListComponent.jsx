@@ -13,13 +13,13 @@ function TaskListComponent() {
       <List
         fontSize="3xl"
         my="5"
-        p="5"
         borderRadius="20px"
         border="2px solid darkgreen"
         boxShadow="0 0 20px darkgreen"
+        p="0 20px 20px"
       >
         {tasks.map((task) => (
-          <ListItem>
+          <ListItem _first={{ mt: "0" }}>
             <TaskComponent key={task.id} position={task.id} />
           </ListItem>
         ))}
