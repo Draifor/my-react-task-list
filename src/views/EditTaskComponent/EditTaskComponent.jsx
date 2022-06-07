@@ -1,8 +1,5 @@
-import "./editTask.css";
+import { VStack, Input, Textarea, Button } from "@chakra-ui/react";
 
-import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
-import InputComponent from "../../components/InputComponent/InputComponent";
-import TextAreaComponent from "../../components/TextAreaComponent/TextAreaComponent";
 import { useEditTask } from "../../hooks/useEditTask";
 
 function EditTaskComponent({ position }) {
@@ -11,31 +8,48 @@ function EditTaskComponent({ position }) {
     newDescription,
     handleInput,
     handleDescription,
+    handleSubmit,
     handleEdit,
   } = useEditTask(position);
 
   return (
-    <form className="form-edit-task">
-      <fieldset className="form-fieldset-edit">
-        <InputComponent
-          type="text"
-          name="edit-task"
-          className="edit-title"
-          value={newTitle}
-          onChange={handleInput}
-          autoFocus
-        />
-        <TextAreaComponent
-          name="edit-task"
-          className="edit-description"
-          cols="30"
-          rows="5"
-          value={newDescription}
-          onChange={handleDescription}
-        />
-      </fieldset>
-      <ButtonComponent onClick={handleEdit}>Guardar</ButtonComponent>
-    </form>
+    <>
+      <form className="form-edit-task">
+        <VStack>
+          <Input
+            type="text"
+            placeholder="Añade un nombre a la tarea"
+            value={newTitle}
+            onChange={handleInput}
+            focusBorderColor="#006400"
+            borderColor={"#00640055"}
+            bg={"#00640055"}
+            fontSize={"2xl"}
+            textAlign={"center"}
+            autoFocus
+          />
+          <Textarea
+            placeholder="Añade una descripción"
+            value={newDescription}
+            onChange={handleDescription}
+            focusBorderColor="#006400"
+            borderColor={"#00640055"}
+            bg={"#00640055"}
+            fontSize={"2xl"}
+            textAlign={"center"}
+            resize="none"
+          />
+        </VStack>
+        <VStack spacing="15px">
+          <Button variant="my-style" w="100%" onClick={handleSubmit}>
+            Guardar
+          </Button>
+          <Button variant="my-style" w="100%" onClick={handleEdit}>
+            Cancelar
+          </Button>
+        </VStack>
+      </form>
+    </>
   );
 }
 

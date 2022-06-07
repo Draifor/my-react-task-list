@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import ButtonComponent from "../ButtonComponent/ButtonComponent";
-import FormAddComponent from "../../views/FormAddComponent/FormAddComponent";
+import { Button } from "@chakra-ui/react";
+import FormAddComponent from "../views/FormAddComponent";
 
 function AddTaskComponent() {
   const [isAddTask, setIsAddTask] = useState(false);
@@ -13,7 +13,9 @@ function AddTaskComponent() {
       {isAddTask ? (
         <FormAddComponent setAddTask={setIsAddTask} />
       ) : (
-        <ButtonComponent onClick={handleAdd}>Agregar Tarea</ButtonComponent>
+        <Button variant="my-style" px='5' onClick={handleAdd}>
+          Agregar Tarea
+        </Button>
       )}
     </>
   );
