@@ -6,7 +6,7 @@ import useTogglerEdit from "../../hooks/useTogglerEdit";
 import { Grid, Image } from "@chakra-ui/react";
 import ImageStatusComponent from "../../components/ImageStatusComponent/ImageStatusComponent";
 import TaskAccordion from "../../components/TaskAccordion";
-import StatusComponent from "../../components/StatusComponent/StatusComponent";
+import StatusComponent from "../../components/StatusComponent";
 import EditTaskComponent from "../EditTaskComponent/EditTaskComponent";
 
 function TaskComponent({ position }) {
