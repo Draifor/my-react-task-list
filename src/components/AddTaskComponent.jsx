@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { Button } from "@chakra-ui/react";
-import FormAddComponent from "../views/FormAddComponent";
+import FormAddComponent from "./FormAddComponent";
 
 function AddTaskComponent() {
   const [isAddTask, setIsAddTask] = useState(false);

@@ -3,7 +3,7 @@ import { TasksContext } from "../hooks/useHandleContext";
 
 import { List, ListItem } from "@chakra-ui/react";
 import TaskComponent from "./TaskComponent/TaskComponent";
-import AddTaskComponent from "../components/AddTaskComponent";
+import AddTaskComponent from "./AddTaskComponent";
 
 function TaskListComponent() {
   const { tasks } = useContext(TasksContext);
@@ -19,8 +19,8 @@ function TaskListComponent() {
         p="0 20px 20px"
       >
         {tasks.map((task) => (
-          <ListItem _first={{ mt: "0" }}>
-            <TaskComponent key={task.id} position={task.id} />
+          <ListItem key={task.id} _first={{ mt: "0" }}>
+            <TaskComponent idTask={task.id} />
           </ListItem>
         ))}
       </List>

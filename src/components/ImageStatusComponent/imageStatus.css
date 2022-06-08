@@ -1,9 +1,0 @@
-img:active {
-    transform: scale(.9);
-}
-img.check {
-    width: 49px;
-}
-img.uncheck {
-    width: 40px;
-}

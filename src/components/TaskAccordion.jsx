@@ -17,7 +17,7 @@ export default function TaskAccordion({ title, description, color }) {
             _focus={{ boxShadow: "0 0 8px 3px green" }}
             borderRadius="10"
           >
-            <Box flex="1" fontSize="2xl" color={color}>
+            <Box flex="1" fontSize="2xl" color={color} pr='10px' >
               {title}
             </Box>
             <Text fontSize="sm" w="10ch" py="0" color={color}>

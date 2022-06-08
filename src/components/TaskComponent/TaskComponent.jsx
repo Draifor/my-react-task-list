@@ -1,20 +1,22 @@
 import edit from "./edit.svg";
+import del from "./delete.svg";
 
 import useTogglerStatus from "../../hooks/useTogglerStatus";
 import useTogglerEdit from "../../hooks/useTogglerEdit";
+import useDeleteTask from "../../hooks/useDeleteTask";
 
 import { Grid, Image } from "@chakra-ui/react";
-import ImageStatusComponent from "../../components/ImageStatusComponent/ImageStatusComponent";
-import TaskAccordion from "../../components/TaskAccordion";
-import StatusComponent from "../../components/StatusComponent";
-import EditTaskComponent from "../EditTaskComponent/EditTaskComponent";
+import ImageStatusComponent from "../ImageStatusComponent/ImageStatusComponent";
+import TaskAccordion from "../TaskAccordion";
+import StatusComponent from "../StatusComponent";
+import EditTaskComponent from "../EditTaskComponent";
 
-function TaskComponent({ position }) {
-  const [task, togglerStatus] = useTogglerStatus(position);
-  const togglerEdit = useTogglerEdit(position);
+function TaskComponent({ idTask }) {
+  const [task, togglerStatus] = useTogglerStatus(idTask);
+  const togglerEdit = useTogglerEdit(idTask);
+  const handleDelete = useDeleteTask(idTask);
 
   const { title, description, status, isEditable } = task;
-
   function renderContent() {
     if (!isEditable)
       return (
@@ -25,15 +27,16 @@ function TaskComponent({ position }) {
             color={status === "completed" ? "#666" : "#fff"}
           />
           <StatusComponent isCompleted={status === "pending" ? false : true} />
+          <Image src={del} w="35px" onClick={handleDelete} alt="Delete icon" />
         </>
       );
-    else return <EditTaskComponent position={position} />;
+    else return <EditTaskComponent idTask={idTask} />;
   }
 
   return (
     <Grid
-      templateColumns="40px 40px 1fr 189px"
-      columnGap="5"
+      templateColumns={`40px 40px 1fr 189px ${!isEditable ? '40px' : ''}`}
+      columnGap={isEditable ? '7' : '5'}
       alignItems="center"
       mt={5}
     >

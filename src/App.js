@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Box, Container } from "@chakra-ui/react";
 
-import HeaderComponent from "./views/HeaderComponent/HeaderComponent.jsx";
+import HeaderComponent from "./components/HeaderComponent/HeaderComponent.jsx";
 import NavComponent from "./components/NavComponent";
-import FooterComponent from "./components/FooterComponent/FooterComponent.jsx";
+import FooterComponent from "./components/FooterComponent.jsx";
 
 const Home = lazy(() => import("./views/Home.jsx"));
 const Tasks = lazy(() => import("./views/Tasks.jsx"));

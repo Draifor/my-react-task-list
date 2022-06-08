@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { TasksContext } from "./useHandleContext";
 
 export default function useAddTask(setAddTask) {
-  const { tasks, setTasks } = useContext(TasksContext);
+  const { tasks, setTasks, idGenerator } = useContext(TasksContext);
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const [newTaskDescription, setNewTaskDescription] = useState("");
   const [errorValidation, setErrorValidation] = useState("");
@@ -19,7 +19,7 @@ export default function useAddTask(setAddTask) {
     setTasks([
       ...tasks,
       {
-        id: tasks.length,
+        id: idGenerator(),
         title: newTaskTitle,
         description: newTaskDescription,
         status: "pending",

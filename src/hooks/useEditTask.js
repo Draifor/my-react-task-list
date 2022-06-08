@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import { TasksContext } from "./useHandleContext";
 import useTogglerEdit from "./useTogglerEdit";
 
-export function useEditTask(position) {
+export function useEditTask(idTask) {
   const { tasks, setTasks } = useContext(TasksContext);
-  const { title, description } = tasks[position];
+  const [ currentTask ] = tasks.filter((task) => task.id === idTask);
+  const { title, description } = currentTask;
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
-  const handleEdit = useTogglerEdit(position);
+  const handleEdit = useTogglerEdit(idTask);
 
   const handleInput = (event) => setNewTitle(event.target.value);
   const handleDescription = (event) => setNewDescription(event.target.value);
@@ -19,7 +20,7 @@ export function useEditTask(position) {
     }
     setTasks(
       tasks.map((task) => {
-        if (task.id === position)
+        if (task.id === idTask)
           return {
             ...task,
             title: newTitle,

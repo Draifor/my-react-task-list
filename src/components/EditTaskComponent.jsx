@@ -1,8 +1,8 @@
 import { VStack, Input, Textarea, Button } from "@chakra-ui/react";
 
-import { useEditTask } from "../../hooks/useEditTask";
+import { useEditTask } from "../hooks/useEditTask";
 
-function EditTaskComponent({ position }) {
+function EditTaskComponent({ idTask }) {
   const {
     newTitle,
     newDescription,
@@ -10,7 +10,7 @@ function EditTaskComponent({ position }) {
     handleDescription,
     handleSubmit,
     handleEdit,
-  } = useEditTask(position);
+  } = useEditTask(idTask);
 
   return (
     <>
