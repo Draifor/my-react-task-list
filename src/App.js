@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { Box, Container } from "@chakra-ui/react";
+import { Box, Container, Center } from "@chakra-ui/react";
 
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent.jsx";
 import NavComponent from "./components/NavComponent";
@@ -9,7 +9,7 @@ import FooterComponent from "./components/FooterComponent.jsx";
 
 const Home = lazy(() => import("./views/Home.jsx"));
 const Tasks = lazy(() => import("./views/Tasks.jsx"));
-const AboutUs = lazy(() => import("./views/AboutUs/AboutUs.jsx"));
+const AboutUs = lazy(() => import("./views/AboutUs.jsx"));
 
 function App() {
   return (
@@ -28,14 +28,16 @@ function App() {
           <HeaderComponent />
           <NavComponent />
 
-          <Suspense fallback={<h2>Cargando...</h2>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/tasks" element={<Tasks />} />
-              <Route path="/about-us" element={<AboutUs />} />
-            </Routes>
-          </Suspense>
+          <Center as='main' flexGrow='1'>
+            <Suspense fallback={<h2>Cargando...</h2>}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/tasks" element={<Tasks />} />
+                <Route path="/about-us" element={<AboutUs />} />
+              </Routes>
+            </Suspense>
+          </Center>
           <FooterComponent />
         </Container>
       </Box>

@@ -1,6 +1,7 @@
 import useHandleContext from "../hooks/useHandleContext";
 
 import { Box, Heading, Text } from "@chakra-ui/react";
+import Section from "../components/Section";
 import TaskListComponent from "../components/TaskListComponent.jsx";
 
 function Tasks() {
@@ -23,14 +24,16 @@ function Tasks() {
         idGenerator,
       }}
     >
-      <Box as="main" flexGrow="1">
+      <Box as="article">
         <Heading as="h1" size="2xl">
           Lista de Tareas
         </Heading>
-        <Text>
-          {completedCounter} de {taskCounter} tareas completadas
-        </Text>
-        <TaskListComponent />
+        <Section>
+          <Text>
+            {completedCounter} de {taskCounter} tareas completadas
+          </Text>
+          <TaskListComponent />
+        </Section>
       </Box>
     </TasksContext.Provider>
   );
