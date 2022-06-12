@@ -1,8 +1,13 @@
-import { Text } from "@chakra-ui/react";
+import { Text, useColorModeValue } from "@chakra-ui/react";
 
 function FooterComponent() {
+  const textShadow = useColorModeValue(
+    "0 0 10px #006400, 0 0 10px #006400",
+    "0 0 1px #006400, 0 0 1px #006400"
+  );
+
   return (
-    <Text p="30px 0 10px" textShadow="0 0 10px #006400, 0 0 10px #006400">
+    <Text p="30px 0 10px" textShadow={textShadow}>
       Todos los derechos reservados Luis Alfredo Parra - Draifor&copy; 2022
     </Text>
   );

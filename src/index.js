@@ -15,8 +15,8 @@ const theme = extendTheme({
           bg: "#006400",
           color: "white",
           border: "1px solid #fff2",
-          boxShadow: '0 0 5px 2px #006400',
-          _hover: { bg: "#006400aa" },
+          boxShadow: "0 0 5px 2px #006400",
+          _hover: { bg: "#006400bb" },
           _focus: { boxShadow: "0 0 2px 2px #0b940b" },
         },
       },
@@ -30,6 +30,10 @@ const theme = extendTheme({
         },
       },
     },
+  },
+  config: {
+    initiColorMode: "dark",
+    useSytemColorMode: false,
   },
 });
 

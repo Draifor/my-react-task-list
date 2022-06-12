@@ -24,7 +24,7 @@ function TaskComponent({ idTask }) {
           <TaskAccordion
             title={title}
             description={description}
-            color={status === "completed" ? "#666" : "#fff"}
+            status={status}
           />
           <StatusComponent isCompleted={status === "pending" ? false : true} />
           <Image src={del} w="35px" onClick={handleDelete} alt="Delete icon" />
@@ -35,8 +35,8 @@ function TaskComponent({ idTask }) {
 
   return (
     <Grid
-      templateColumns={`40px 40px 1fr 189px ${!isEditable ? '40px' : ''}`}
-      columnGap={isEditable ? '7' : '5'}
+      templateColumns={`40px 40px 1fr 189px ${!isEditable ? "40px" : ""}`}
+      columnGap={isEditable ? "7" : "5"}
       alignItems="center"
       mt={5}
     >

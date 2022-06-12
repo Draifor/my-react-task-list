@@ -57,8 +57,10 @@ export default function useHandleContext() {
   useEffect(() => {
     setTaskCounter(tasks.length);
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    setCompletedCounter(tasks.filter((task) => task.status === "completed").length);
-    console.log('Se cambió el estado de las tareas');
+    setCompletedCounter(
+      tasks.filter((task) => task.status === "completed").length
+    );
+    console.log("Se cambió el estado de las tareas");
   }, [tasks]);
 
   return {

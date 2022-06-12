@@ -4,7 +4,7 @@ import useTogglerEdit from "./useTogglerEdit";
 
 export function useEditTask(idTask) {
   const { tasks, setTasks } = useContext(TasksContext);
-  const [ currentTask ] = tasks.filter((task) => task.id === idTask);
+  const [currentTask] = tasks.filter((task) => task.id === idTask);
   const { title, description } = currentTask;
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);

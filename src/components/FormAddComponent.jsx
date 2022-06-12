@@ -30,6 +30,7 @@ export default function FormAddComponent({ setAddTask }) {
           type="text"
           id="new-task"
           placeholder="Añade un nombre a la tarea"
+          _placeholder={{ color: "gray.500" }}
           value={newTaskTitle}
           onChange={handleInput}
           focusBorderColor="#006400"
@@ -41,6 +42,7 @@ export default function FormAddComponent({ setAddTask }) {
         />
         <Textarea
           placeholder="Añade una descripción"
+          _placeholder={{ color: "gray.500" }}
           value={newTaskDescription}
           onChange={handleDescription}
           focusBorderColor="#006400"

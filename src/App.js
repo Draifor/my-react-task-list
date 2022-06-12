@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { Box, Container, Center } from "@chakra-ui/react";
+import { Box, Container, Center, useColorModeValue } from "@chakra-ui/react";
 
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent.jsx";
 import NavComponent from "./components/NavComponent";
@@ -12,23 +12,25 @@ const Tasks = lazy(() => import("./views/Tasks.jsx"));
 const AboutUs = lazy(() => import("./views/AboutUs.jsx"));
 
 function App() {
+  const bg = useColorModeValue("#060606", "#fafafa");
+  const color = useColorModeValue("#fafafa", "#006400");
   return (
     <Router>
-      <Box bg="#060606" minH="100vh" >
+      <Box bg={bg} minH="100vh">
         <Container
           justifyContent="space-between"
           textAlign="center"
           fontSize="1.5em"
-          color="white"
+          color={color}
           minH="100vh"
-          maxW='95vw'
+          maxW="95vw"
           gap={4}
           centerContent
         >
           <HeaderComponent />
           <NavComponent />
 
-          <Center as='main' flexGrow='1'>
+          <Center as="main" flexGrow="1">
             <Suspense fallback={<h2>Cargando...</h2>}>
               <Routes>
                 <Route path="/" element={<Home />} />

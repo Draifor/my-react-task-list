@@ -2,9 +2,8 @@ import { useContext } from "react";
 import { TasksContext } from "./useHandleContext";
 
 function useTogglerStatus(idTask) {
-  const { tasks, setTasks } =
-    useContext(TasksContext);
-  const [ currentTask ] = tasks.filter((task) => task.id === idTask);
+  const { tasks, setTasks } = useContext(TasksContext);
+  const [currentTask] = tasks.filter((task) => task.id === idTask);
 
   const togglerStatus = () => {
     setTasks(
