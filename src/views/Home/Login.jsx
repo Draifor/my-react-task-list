@@ -13,6 +13,7 @@ import {
 export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
   const bg = useColorModeValue("#090909", "#fafafa");
+  const color = useColorModeValue("#fafafa", "#006400");
 
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider();
@@ -23,7 +24,8 @@ export default function Login() {
       )
       .catch((error) => {
         setErrorMessage(error.message);
-        console.log(errorMessage)})
+        console.log(errorMessage);
+      });
   };
 
   return (
@@ -46,10 +48,11 @@ export default function Login() {
         variant="my-style"
         onClick={handleGoogleLogin}
         size="lg"
+        color={color}
       >
         Inicia Sesión con Google
       </Button>
-      <Button bg="transparent" variant="my-style" size="lg">
+      <Button bg="transparent" variant="my-style" color={color} size="lg">
         Inicia Sesión con Facebook
       </Button>
     </Center>
