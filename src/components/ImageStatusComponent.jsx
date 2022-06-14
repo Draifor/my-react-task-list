@@ -1,5 +1,5 @@
-import check from "./check.svg";
-import uncheck from "./uncheck.svg";
+import check from "../assets/check.svg";
+import uncheck from "../assets/uncheck.svg";
 import { Image } from "@chakra-ui/react";
 
 function ImageStatusComponent({ status, onClick, disabled }) {

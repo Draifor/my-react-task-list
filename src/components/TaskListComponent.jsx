@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { TasksContext } from "../hooks/useHandleContext";
 
 import { List, ListItem } from "@chakra-ui/react";
-import TaskComponent from "./TaskComponent/TaskComponent";
+import TaskComponent from "./TaskComponent";
 import AddTaskComponent from "./AddTaskComponent";
 
 function TaskListComponent() {

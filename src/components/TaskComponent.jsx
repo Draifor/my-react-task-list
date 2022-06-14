@@ -1,15 +1,15 @@
-import edit from "./edit.svg";
-import del from "./delete.svg";
+import edit from "../assets/edit.svg";
+import del from "../assets/delete.svg";
 
-import useTogglerStatus from "../../hooks/useTogglerStatus";
-import useTogglerEdit from "../../hooks/useTogglerEdit";
-import useDeleteTask from "../../hooks/useDeleteTask";
+import useTogglerStatus from "../hooks/useTogglerStatus";
+import useTogglerEdit from "../hooks/useTogglerEdit";
+import useDeleteTask from "../hooks/useDeleteTask";
 
 import { Grid, Image } from "@chakra-ui/react";
-import ImageStatusComponent from "../ImageStatusComponent/ImageStatusComponent";
-import TaskAccordion from "../TaskAccordion";
-import StatusComponent from "../StatusComponent";
-import EditTaskComponent from "../EditTaskComponent";
+import ImageStatusComponent from "./ImageStatusComponent";
+import TaskAccordion from "./TaskAccordion";
+import StatusComponent from "./StatusComponent";
+import EditTaskComponent from "./EditTaskComponent";
 
 function TaskComponent({ idTask }) {
   const [task, togglerStatus] = useTogglerStatus(idTask);

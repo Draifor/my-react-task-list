@@ -1,7 +1,7 @@
 import useHandleContext from "../hooks/useHandleContext";
 
 import { Box, Heading, Text } from "@chakra-ui/react";
-import Section from "../components/Section";
+import Section from "../layout/Section";
 import TaskListComponent from "../components/TaskListComponent.jsx";
 
 function Tasks() {

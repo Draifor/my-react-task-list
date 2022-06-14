@@ -1,5 +1,5 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
-import Section from "../components/Section";
+import Section from "../layout/Section";
 
 export default function AboutUs() {
   return (

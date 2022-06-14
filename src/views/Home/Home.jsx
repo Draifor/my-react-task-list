@@ -1,8 +1,9 @@
 import { Heading, Text, Box } from "@chakra-ui/react";
-import Section from "../components/Section";
+import Login from "./Login";
+import Section from "../../layout/Section";
 export default function Home() {
   return (
-    <Box as="article">
+    <Box as="article" display='contents' >
       <Heading as="h1" size="2xl">
         App Lista de tareas
       </Heading>
@@ -11,6 +12,7 @@ export default function Home() {
           Bienvenido a la mejor aplicación para gestionar tus tareas
         </Text>
       </Section>
+        <Login/>
     </Box>
   );
 }

@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Box, Container, Center, useColorModeValue } from "@chakra-ui/react";
 
-import HeaderComponent from "./components/HeaderComponent/HeaderComponent.jsx";
-import NavComponent from "./components/NavComponent";
-import FooterComponent from "./components/FooterComponent.jsx";
+import HeaderComponent from "./layout/HeaderComponent";
+import NavComponent from "./layout/NavComponent";
+import FooterComponent from "./layout/FooterComponent";
 
-const Home = lazy(() => import("./views/Home.jsx"));
+const Home = lazy(() => import("./views/Home/Home.jsx"));
 const Tasks = lazy(() => import("./views/Tasks.jsx"));
 const AboutUs = lazy(() => import("./views/AboutUs.jsx"));
 
@@ -30,7 +30,13 @@ function App() {
           <HeaderComponent />
           <NavComponent />
 
-          <Center as="main" flexGrow="1">
+          <Center
+            as="main"
+            flexGrow="1"
+            flexDirection="column"
+            justifyContent="flex-start"
+            gap="5"
+          >
             <Suspense fallback={<h2>Cargando...</h2>}>
               <Routes>
                 <Route path="/" element={<Home />} />

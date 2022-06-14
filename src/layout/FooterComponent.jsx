@@ -7,7 +7,7 @@ function FooterComponent() {
   );
 
   return (
-    <Text p="30px 0 10px" textShadow={textShadow}>
+    <Text p="10px 0 10px" textShadow={textShadow}>
       Todos los derechos reservados Luis Alfredo Parra - Draifor&copy; 2022
     </Text>
   );
