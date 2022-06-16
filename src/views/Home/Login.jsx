@@ -1,6 +1,14 @@
 import { app } from "../../firebase-config";
-import { useState } from "react";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import fbIcon from "../../assets/fb-r.svg";
+import googleIcon from "../../assets/google-r.svg";
+
+import { useState, createContext } from "react";
+import {
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  getAuth,
+  signInWithPopup,
+} from "firebase/auth";
 
 import {
   Center,
@@ -9,6 +17,12 @@ import {
   Divider,
   useColorModeValue,
 } from "@chakra-ui/react";
+import Icon from "../../components/Icon";
+
+const userContext = createContext({
+  user: { name: "", ImgProfile: "" },
+  setUser: () => {},
+});
 
 export default function Login() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -17,6 +31,19 @@ export default function Login() {
 
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider();
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((userCredentials) =>
+        console.log(`Bienvenido ${userCredentials.user.displayName}`)
+      )
+      .catch((error) => {
+        setErrorMessage(error.message);
+        console.log(errorMessage);
+      });
+  };
+
+  const handleFacebookLogin = () => {
+    const provider = new FacebookAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((userCredentials) =>
@@ -47,12 +74,20 @@ export default function Login() {
         bg="transparent"
         variant="my-style"
         onClick={handleGoogleLogin}
+        leftIcon={<Icon src={googleIcon} alt="Google icon" />}
         size="lg"
         color={color}
       >
         Inicia Sesión con Google
       </Button>
-      <Button bg="transparent" variant="my-style" color={color} size="lg">
+      <Button
+        bg="transparent"
+        leftIcon={<Icon src={fbIcon} alt="Facebook icon" />}
+        onClick={handleFacebookLogin}
+        variant="my-style"
+        color={color}
+        size="lg"
+      >
         Inicia Sesión con Facebook
       </Button>
     </Center>
