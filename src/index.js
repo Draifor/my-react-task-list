@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { UserProvider } from "./providers/UserProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -41,7 +42,9 @@ export default theme;
 root.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <App />
+     <UserProvider>
+       <App />
+     </UserProvider>
     </ChakraProvider>
   </React.StrictMode>
 );

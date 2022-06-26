@@ -2,7 +2,7 @@ import { app } from "../../firebase-config";
 import fbIcon from "../../assets/fb-r.svg";
 import googleIcon from "../../assets/google-r.svg";
 
-import { useState, createContext } from "react";
+import { useState, useEffect } from "react";
 import {
   GoogleAuthProvider,
   FacebookAuthProvider,
@@ -14,28 +14,29 @@ import {
   Center,
   Heading,
   Button,
+  Image,
   Divider,
   useColorModeValue,
 } from "@chakra-ui/react";
 import Icon from "../../components/Icon";
-
-const userContext = createContext({
-  user: { name: "", ImgProfile: "" },
-  setUser: () => {},
-});
+import useUser from "../../hooks/useUser";
 
 export default function Login() {
-  const [errorMessage, setErrorMessage] = useState("");
   const bg = useColorModeValue("#090909", "#fafafa");
   const color = useColorModeValue("#fafafa", "#006400");
+  const [errorMessage, setErrorMessage] = useState("");
+  const { user, setUser } = useUser;
 
   const handleGoogleLogin = () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
-      .then((userCredentials) =>
-        console.log(`Bienvenido ${userCredentials.user.displayName}`)
-      )
+      .then((userCredentials) => {
+        setUser({
+          name: userCredentials.user.displayName,
+          image: userCredentials.user.photoURL,
+        });
+      })
       .catch((error) => {
         setErrorMessage(error.message);
         console.log(errorMessage);
@@ -46,14 +47,21 @@ export default function Login() {
     const provider = new FacebookAuthProvider();
     const auth = getAuth();
     signInWithPopup(auth, provider)
-      .then((userCredentials) =>
-        console.log(`Bienvenido ${userCredentials.user.displayName}`)
-      )
+      .then((userCredentials) => {
+        setUser({
+          name: userCredentials.user.displayName,
+          image: userCredentials.user.photoURL,
+        });
+      })
       .catch((error) => {
         setErrorMessage(error.message);
         console.log(errorMessage);
       });
   };
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   return (
     <Center
@@ -66,6 +74,7 @@ export default function Login() {
       p="9"
       m="20px auto 0"
     >
+      {/* {<Image src={user.image} alt={user.name} />} */}
       <Heading as="h1" size="xl">
         Inicia Sesión
       </Heading>
