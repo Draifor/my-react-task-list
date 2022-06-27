@@ -12,7 +12,7 @@ import {
 export default function TaskAccordion({ title, description, status }) {
   const completedColor = useColorModeValue("#666", "#666");
   const pendingColor = useColorModeValue("#fff", "#000");
-  const color = status === "completed" ? completedColor : pendingColor;
+  const color = status === "pending" ? pendingColor : completedColor;
 
   return (
     <Accordion allowMultiple>

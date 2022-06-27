@@ -1,19 +1,19 @@
 import { useContext } from "react";
+import useTogglerEdit from "./useTogglerEdit";
 import { TasksContext } from "./useHandleContext";
 
-function useTogglerStatus(idTask) {
+export default function useTogglerStatus(idTask) {
   const { tasks, setTasks } = useContext(TasksContext);
   const [currentTask] = tasks.filter((task) => task.id === idTask);
+  const { updateDocument } = useTogglerEdit(idTask);
 
   const togglerStatus = () => {
     setTasks(
       tasks.map((task) => {
-        if (task.id === idTask)
-          if (task.status === "pending") {
-            task.status = "completed";
-          } else {
-            task.status = "pending";
-          }
+        if (task.id === idTask) {
+          task.status = task.status === "pending" ? "completed" : "pending";
+          updateDocument(task);
+        }
 
         return { ...task };
       })
@@ -22,5 +22,3 @@ function useTogglerStatus(idTask) {
 
   return [currentTask, togglerStatus];
 }
-
-export default useTogglerStatus;

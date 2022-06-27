@@ -1,51 +1,17 @@
 import { useState, createContext, useEffect } from "react";
+import { dataBase } from "../firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 
 export const TasksContext = createContext({
   tasks: [{ id: 0, description: "", status: "" }],
   setTaks: (tasks) => tasks,
   completedCounter: 0,
   setCompletedCounter: (counter) => counter,
-  idGenerator: () => 0,
 });
 
-const idGenerator = () => {
-  const date = new Date().getTime();
-  const random1 = Math.random() * 1000;
-  const random2 = Math.round(Math.random() * 1000 + random1);
-  return random2 + "fdg" + date;
-};
-const storedTasks = JSON.parse(localStorage.getItem("tasks"));
-const initialTasks = storedTasks
-  ? storedTasks
-  : [
-      {
-        id: idGenerator(),
-        title: "Practicar inglés - 1 hora",
-        description: "Usar Duolingo y Elsa Speak",
-        status: "pending",
-      },
-      {
-        id: idGenerator(),
-        title: "Hacer ejercicio - 1 hora",
-        description: "",
-        status: "pending",
-      },
-      {
-        id: idGenerator(),
-        title: "Trabajar en el proyecto - 1 hora",
-        description: "Implementar los formularios",
-        status: "pending",
-      },
-      {
-        id: idGenerator(),
-        title: "Tocar guitarra - 30 minutos",
-        description: "Hacer ejercicos de fingerpicking",
-        status: "pending",
-      },
-    ];
-
 export default function useHandleContext() {
-  const [tasks, setTasks] = useState(initialTasks);
+  let dataBaseTasks = [];
+  const [tasks, setTasks] = useState([]);
   const initialCompletedCounter = tasks.filter(
     (task) => task.status === "completed"
   ).length;
@@ -54,9 +20,30 @@ export default function useHandleContext() {
     initialCompletedCounter
   );
 
+  const readDocuments = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(dataBase, "tasks"));
+
+      dataBaseTasks = querySnapshot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+      setTasks(dataBaseTasks);
+      console.log(tasks);
+      console.log(dataBaseTasks);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    readDocuments();
+  }, []);
+
   useEffect(() => {
     setTaskCounter(tasks.length);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
     setCompletedCounter(
       tasks.filter((task) => task.status === "completed").length
     );
@@ -70,6 +57,6 @@ export default function useHandleContext() {
     taskCounter,
     setTaskCounter,
     completedCounter,
-    idGenerator,
+    readDocuments,
   };
 }

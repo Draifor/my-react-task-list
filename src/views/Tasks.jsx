@@ -12,8 +12,8 @@ function Tasks() {
     completedCounter,
     setCompletedCounter,
     taskCounter,
-    idGenerator,
   } = useHandleContext();
+
   return (
     <TasksContext.Provider
       value={{
@@ -21,7 +21,6 @@ function Tasks() {
         setTasks,
         completedCounter,
         setCompletedCounter,
-        idGenerator,
       }}
     >
       <Box as="article">

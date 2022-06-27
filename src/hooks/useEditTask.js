@@ -8,7 +8,7 @@ export function useEditTask(idTask) {
   const { title, description } = currentTask;
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
-  const handleEdit = useTogglerEdit(idTask);
+  const { handleEdit, updateDocument } = useTogglerEdit(idTask);
 
   const handleInput = (event) => setNewTitle(event.target.value);
   const handleDescription = (event) => setNewDescription(event.target.value);
@@ -18,18 +18,14 @@ export function useEditTask(idTask) {
       alert("El nombre de la tarea es muy corto");
       return;
     }
-    setTasks(
-      tasks.map((task) => {
-        if (task.id === idTask)
-          return {
-            ...task,
-            title: newTitle,
-            description: newDescription,
-            isEditable: false,
-          };
-        return { ...task };
-      })
-    );
+    const newTask = {
+      ...currentTask,
+      title: newTitle,
+      description: newDescription,
+      isEditable: false,
+    };
+    updateDocument(newTask);
+    setTasks(tasks.map((task) => (task.id === idTask ? newTask : task)));
   };
 
   return {
@@ -39,5 +35,6 @@ export function useEditTask(idTask) {
     handleDescription,
     handleSubmit,
     handleEdit,
+    updateDocument,
   };
 }

@@ -12,11 +12,11 @@ import StatusComponent from "./StatusComponent";
 import EditTaskComponent from "./EditTaskComponent";
 
 function TaskComponent({ idTask }) {
-  const [task, togglerStatus] = useTogglerStatus(idTask);
-  const togglerEdit = useTogglerEdit(idTask);
+  const [currentTask, togglerStatus] = useTogglerStatus(idTask);
+  const { handleEdit } = useTogglerEdit(idTask);
   const handleDelete = useDeleteTask(idTask);
 
-  const { title, description, status, isEditable } = task;
+  const { title, description, status, isEditable } = currentTask;
   function renderContent() {
     if (!isEditable)
       return (
@@ -40,7 +40,7 @@ function TaskComponent({ idTask }) {
       alignItems="center"
       mt={5}
     >
-      <Image src={edit} w="40px" onClick={togglerEdit} alt="Edit" />
+      <Image src={edit} w="40px" onClick={handleEdit} alt="Edit" />
       <ImageStatusComponent
         status={status}
         onClick={togglerStatus}
